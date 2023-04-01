@@ -1,0 +1,1 @@
+ALTER TABLE public.mytable ADD mycolumn2 varchar NULL;
