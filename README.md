@@ -1,8 +1,8 @@
 # Flywaydb Docker Image
 
-Das hier ist mein Docker Image für Flywaydb (9.16.1).
+Das hier ist mein Docker Image für Flywaydb (9.20.0).
 Die Basis ist Ubuntu 22.04. Deutsche Locale und Uhrzeit sind vorkonfiguriert.
-"Mein" Flywaydb **unterstützt nur Postgres**.
+"Mein" Flywaydb **unterstützt nur Postgres** und ist, anders als das Docker Image von Redgate, komfortabel über Umgebungsvariablen konfigurierbar.
 
 ## Wie benutze ich das Image?
 
@@ -15,7 +15,7 @@ Im Ordner `sql-migrations` liegen zwei Testmigrationen.
 services:
 
   flywaydb:
-    image: docker.schipplock.de/flywaydb:9.16.1
+    image: ghcr.io/schipplock/flywaydbpostgres/flywaydb:9.20.0
     container_name: flywaydb
     networks:
       local-net:
@@ -44,19 +44,8 @@ In diesem Repository liegt eine funktionierende `docker-compose.yml` dabei.
 
 ## Das Image bauen
 
-Ich stelle das Docker-Image zwar in meiner eigenen Docker Registry zur Verfügung.
-Man kann das Image aber selbstverständlich auch selber bauen.
+Man kann das Image auch selber bauen, wenn man möchte:
 
 ```bash
-docker build --no-cache --network=host --force-rm -t docker.schipplock.de/flywaydb:9.16.1 .
-```
-
-## Das Image in die Registry pushen
-
-Das funktioniert natürlich nur, wenn man den Zugang kennt. Diese Info habe ich für mich selbst hier dokumentiert.
-
-```bash
-docker push docker.schipplock.de/flywaydb:9.16.1
-docker tag docker.schipplock.de/flywaydb:9.16.1 docker.schipplock.de/flywaydb:latest
-docker push docker.schipplock.de/flywaydb:latest
+docker build --no-cache --network=host --force-rm -t ghcr.io/schipplock/flywaydbpostgres/flywaydb:9.20.0 .
 ```
