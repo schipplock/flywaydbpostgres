@@ -15,7 +15,7 @@ Im Ordner `sql-migrations` liegen zwei Testmigrationen.
 services:
 
   flywaydb:
-    image: ghcr.io/schipplock/flywaydbpostgres/flywaydb:9.20.0
+    image: ghcr.io/schipplock/flywaydbpostgres/flywaydb:v9.20.0
     container_name: flywaydb
     networks:
       local-net:
@@ -47,5 +47,5 @@ In diesem Repository liegt eine funktionierende `docker-compose.yml` dabei.
 Man kann das Image auch selber bauen, wenn man möchte:
 
 ```bash
-docker build --no-cache --network=host --force-rm -t ghcr.io/schipplock/flywaydbpostgres/flywaydb:9.20.0 .
+docker build --no-cache --network=host --force-rm -t ghcr.io/schipplock/flywaydbpostgres/flywaydb:v9.20.0 .
 ```
