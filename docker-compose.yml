@@ -33,11 +33,7 @@ services:
       POSTGRES_DB: db
 
   flywaydb:
-    build:
-      network: host
-      context: .
-      dockerfile: Dockerfile
-    image: docker.schipplock.de/flywaydb:9.16.1
+    image: ghcr.io/schipplock/flywaydbpostgres/flywaydb:v9.20.0
     container_name: flywaydb
     networks:
       local-net:
